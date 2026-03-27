@@ -5,7 +5,7 @@ Thiết kế mới: 1 sheet duy nhất mỗi ngày, chia 2 cột khu vực (Th�
 """
 
 import logging
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 import gspread
 from google.oauth2.service_account import Credentials
@@ -91,7 +91,8 @@ def write_to_sheets(articles: list[dict], buckets: dict[str, list[dict]],
         log.warning("Chưa cấu hình GOOGLE_SHEETS_ID – bỏ qua")
         return
 
-    today      = datetime.now().strftime("%Y-%m-%d")
+    vn_tz      = timezone(timedelta(hours=7))
+    today      = datetime.now(vn_tz).strftime("%Y-%m-%d")
     sheet_name = today  # 1 tab duy nhất mỗi ngày
 
     # Tạo lookup: url → group
