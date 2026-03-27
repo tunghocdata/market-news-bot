@@ -1,0 +1,40 @@
+name: Market News Automation
+
+on:
+  schedule:
+    # Chạy Morning Brief lúc 07:00 VN (UTC+7) -> 00:00 UTC (Tất cả các ngày trong tuần)
+    - cron: '0 0 * * *'
+    
+  workflow_dispatch: # Cho phép bấm chạy thủ công trên giao diện GitHub
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip' # Tăng tốc cài đặt thư viện
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Create Google Service Account Secret File
+        run: |
+          echo "${{ secrets.GCP_SERVICE_ACCOUNT }}" > service_account.json
+
+      - name: Run Morning Brief
+        if: github.event.schedule == '0 0 * * *' || github.event_name == 'workflow_dispatch'
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
+          GOOGLE_SERVICE_ACCOUNT_FILE: "service_account.json"
+        run: python morning_run.py
