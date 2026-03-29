@@ -161,7 +161,7 @@ def write_to_sheets(articles: list[dict], buckets: dict[str, list[dict]],
                         batch.append(txt_row)
                 batch.append([""] * 20)
 
-        ws.update("A1", batch, value_input_option="RAW")
+        ws.update(values=batch, range_name="A1", value_input_option="RAW")
 
         log.info(
             "✅ Sheets [%s]: %d thế giới + %d trong nước",

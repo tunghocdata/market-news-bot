@@ -2,8 +2,8 @@ name: Market News Automation
 
 on:
   schedule:
-    # Chạy Morning Brief lúc 07:00 VN (UTC+7) -> 00:00 UTC (Tất cả các ngày trong tuần)
-    - cron: '0 0 * * *'
+    # Chạy Morning Brief lúc 06:45 VN (UTC+7) -> 23:45 UTC (Để tránh kẹt hàng đợi GitHub lúc đúng giờ)
+    - cron: '45 23 * * *'
     
   workflow_dispatch: # Cho phép bấm chạy thủ công trên giao diện GitHub
 
