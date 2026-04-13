@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Tin Sáng – tunglaiapchung – 13/04/2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ════════════════════════════════════════════
+       RESET & BASE
+    ════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ─ BSC Teal palette ─ */
+      --teal:       #007b7b;
+      --teal-dark:  #005f5f;
+      --teal-light: #e0f2f1;
+      --teal-mid:   #b2dfdb;
+
+      /* ─ Neutrals ─ */
+      --bg:         #f5f5f5;
+      --right-bg:   #f7f9f9;
+      --card:       #ffffff;
+      --border:     #dde5e5;
+      --text:       #1c2b2b;
+      --text-sm:    #4a5a5a;
+
+      /* ─ Market colors ─ */
+      --up:         #007a3d;
+      --down:       #c0152a;
+      --neutral:    #6b7b7b;
+
+      /* ─ Tags ─ */
+      --tag-qt-bg:  #fff8e1;
+      --tag-qt-fg:  #7a5200;
+      --tag-vn-bg:  #e8f5e9;
+      --tag-vn-fg:  #1b5e20;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12.5px;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ════════════════════════════════════════════
+       PAGE WRAPPER — no shadow, flat like print
+    ════════════════════════════════════════════ */
+    .page-wrapper {
+      max-width: 940px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid #ccc;
+    }
+
+    /* ════════════════════════════════════════════
+       HEADER — BSC style: TEAL gradient, compact
+    ════════════════════════════════════════════ */
+    .report-header {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+      color: #fff;
+      padding: 12px 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+    .logo-placeholder {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.6);
+      padding: 4px 12px;
+      border-radius: 4px;
+    }
+    .header-title {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .header-title h1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      line-height: 1.2;
+      color: #fff;
+    }
+    .header-title p {
+      font-size: 11px;
+      color: rgba(255,255,255,.8);
+      margin-top: 1px;
+    }
+    .header-right {
+      text-align: right;
+    }
+    .header-right .date-big {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .header-right .date-label {
+      font-size: 10.5px;
+      color: rgba(255,255,255,.75);
+      margin-top: 2px;
+    }
+
+    /* ════════════════════════════════════════════
+       SOURCE STRIP — thin teal underline
+    ════════════════════════════════════════════ */
+    .strip {
+      background: var(--teal-light);
+      border-bottom: 2px solid var(--teal);
+      padding: 4px 20px;
+      font-size: 10.5px;
+      color: var(--teal-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ════════════════════════════════════════════
+       MAIN LAYOUT — 2 columns (wider right for market tables)
+    ════════════════════════════════════════════ */
+    .main-body {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    /* Left column — white, news content */
+    .col-left {
+      padding: 14px 16px 14px 20px;
+      border-right: 1px solid var(--border);
+      background: #fff;
+    }
+
+    /* Right column — light grey BG like BSC */
+    .col-right {
+      background: var(--right-bg);
+      padding: 14px 16px;
+      border-left: 3px solid var(--teal);
+    }
+
+    /* ════════════════════════════════════════════
+       SECTION TITLES — teal, no emoji, underline
+    ════════════════════════════════════════════ */
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      color: var(--teal-dark);
+      border-bottom: 1.5px solid var(--teal);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .section-gap { margin-bottom: 14px; }
+
+    /* ════════════════════════════════════════════
+       MARKET TABLES — BSC style
+       - teal thead, no vertical borders, thin horiz
+    ════════════════════════════════════════════ */
+    .market-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      margin-bottom: 4px;
+      table-layout: fixed;
+    }
+    .market-table col.name { width: 45%; }
+    .market-table col.val  { width: 30%; }
+    .market-table col.pct  { width: 25%; }
+    .market-table thead th {
+      background: var(--teal);
+      color: #fff;
+      padding: 4px 8px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      border: none;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .market-table thead th:not(:first-child) { text-align: right; }
+
+    .market-table tbody tr {
+      border-bottom: 1px solid #e0e8e8;
+    }
+    .market-table tbody tr:last-child { border-bottom: none; }
+    .market-table tbody tr:nth-child(even) { background: rgba(0,123,123,.03); }
+
+    .market-table td {
+      padding: 4px 8px;
+      vertical-align: middle;
+      border: none;
+      overflow: hidden;
+    }
+    .market-table td:first-child {
+      white-space: normal;
+      word-break: break-word;
+      font-size: 12px;
+    }
+    .market-table td:not(:first-child) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .market-table td.val {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .market-table .foreign-row td {
+      background: #e8f5f5;
+      font-size: 11px;
+      font-style: italic;
+    }
+
+    /* ─ Up / Down / Neutral ─ */
+    .up      { color: var(--up);   font-weight: 600; }
+    .down    { color: var(--down); font-weight: 600; }
+    .neutral { color: var(--neutral); }
+    .sym     { color: var(--neutral); font-size: 10.5px; }
+    .note    { color: var(--neutral); font-size: 10px; font-style: italic; }
+    .warn    { color: #c44b00; font-size: 10.5px; }
+
+    /* ════════════════════════════════════════════
+       MACRO NEWS — bullet list style
+    ════════════════════════════════════════════ */
+    .macro-list {
+      list-style: none;
+      padding: 0;
+    }
+    .macro-list li {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+      padding: 4px 0;
+      border-bottom: 1px solid #eaeeee;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .macro-list li:first-child { padding-top: 0; }
+    .macro-list li:last-child  { border-bottom: none; padding-bottom: 0; }
+
+    .bullet {
+      color: var(--teal);
+      font-size: 14px;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+
+    .tag-qt, .tag-vn {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 3px;
+      letter-spacing: .3px;
+    }
+    .tag-qt { background: var(--tag-qt-bg); color: var(--tag-qt-fg); }
+    .tag-vn { background: var(--tag-vn-bg); color: var(--tag-vn-fg); }
+
+    /* Fallback: macro summary block từ AI */
+    .macro-group {
+      font-size: 12px;
+      margin-bottom: 8px;
+      padding: 7px 10px;
+      background: var(--teal-light);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 3px 3px 0;
+      line-height: 1.5;
+    }
+
+    /* ════════════════════════════════════════════
+       CORPORATE NEWS
+    ════════════════════════════════════════════ */
+    .corporate-section { margin-top: 2px; }
+    .corp-list {
+      font-size: 12.5px;
+    }
+    .corp-item {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+      padding: 5px 0;
+      border-bottom: 1px solid #eaeeee;
+      line-height: 1.45;
+    }
+    .corp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    /* ════════════════════════════════════════════
+       AI SECTION — full width, teal flavoured
+    ════════════════════════════════════════════ */
+    .ai-section {
+      background: linear-gradient(135deg, #004d4d 0%, #006666 50%, #007b7b 100%);
+      padding: 14px 20px;
+      border-top: 3px solid #ffd54f;
+    }
+    .ai-section .section-title {
+      color: #ffd54f;
+      border-color: #ffd54f;
+    }
+    .ai-block {
+      color: #e0f2f1;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,.07);
+      border-radius: 4px;
+      border-left: 3px solid #ffd54f;
+    }
+    .ai-block:last-child { margin-bottom: 0; }
+
+    /* ════════════════════════════════════════════
+       FOOTER — teal, compact
+    ════════════════════════════════════════════ */
+    .report-footer {
+      background: var(--teal-dark);
+      color: rgba(255,255,255,.75);
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10.5px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .report-footer a { color: #80cbc4; text-decoration: none; }
+    .report-footer a:hover { text-decoration: underline; }
+    .disclaimer { font-style: italic; }
+
+    /* ════════════════════════════════════════════
+       OUTLOOK CARDS — bottom of left column
+    ════════════════════════════════════════════ */
+    .outlook-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .outlook-card {
+      border: 1px solid #e0e8e6;
+      border-radius: 4px;
+      padding: 8px 10px;
+      background: #f9fffe;
+    }
+    .outlook-card .oc-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #888;
+      margin-bottom: 3px;
+    }
+    .outlook-card .oc-sentiment {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .outlook-card .oc-note {
+      font-size: 10.5px;
+      color: #555;
+      line-height: 1.35;
+    }
+    .oc-pos  { color: var(--up); }
+    .oc-neg  { color: var(--down); }
+    .oc-neu  { color: #e6a817; }
+
+    /* ════════════════════════════════════════════
+       PRINT STYLES — A4, faithful to screen
+    ════════════════════════════════════════════ */
+    @page {
+      margin: 0;
+    }
+    @media print {
+      body { background: #fff; font-size: 11px; padding: 8mm; }
+      .page-wrapper { border: none; max-width: 100%; }
+      .report-header,
+      .ai-section,
+      .report-footer,
+      .col-right,
+      .strip {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* ════════════════════════════════════════════
+       RESPONSIVE — mobile
+    ════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .main-body { grid-template-columns: 1fr; }
+      .col-left  { border-right: none; border-bottom: 1px solid var(--border); }
+      .col-right { border-left: none; border-top: 3px solid var(--teal); }
+      .report-header { flex-direction: column; align-items: flex-start; }
+      .header-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+  <header class="report-header">
+    <div class="header-left">
+      <img src="logo.png" alt="tunglaiapchung" class="logo">
+      <div class="header-title">
+        <h1>BẢN TIN SÁNG NGÀY 13/04/2026</h1>
+        <p>Chuyên gia Chứng khoán &nbsp;·&nbsp; https://t.me/tunglaiapchung &nbsp;·&nbsp; 0865469745</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="date-big">13/04/2026</div>
+      <div class="date-label">Phát hành 7:30 SA</div>
+    </div>
+  </header>
+
+  <!-- ══ SOURCE STRIP ══════════════════════════════════════════════════════════ -->
+  <div class="strip">
+    <span>Nguồn: Reuters · Bloomberg · NYT · BBC · CafeF · VnEconomy · VietnamBiz · 24HMoney</span>
+    <span>Thị trường tài chính – Tin tức vĩ mô – Nhận định AI</span>
+  </div>
+
+  <!-- ══ MAIN BODY — 2 COLUMNS ════════════════════════════════════════════════ -->
+  <div class="main-body">
+
+    <!-- ─ LEFT: News ─────────────────────────────────────────────────────── -->
+    <div class="col-left">
+
+      <!-- Tin vĩ mô -->
+      <div class="section-gap">
+        <div class="section-title">Tin tức vĩ mô</div>
+        <ul class="macro-list">
+<li><span class="bullet">&bull;</span><span class="tag-qt">QT</span> Không có tin mới.</li>
+<li><span class="bullet">&bull;</span><span class="tag-qt">QT</span> Tin tức cho biết các cuộc đàm phán hòa bình giữa Mỹ và Iran đã sụp đổ, dẫn đến sự bất ổn trên thị trường tà…</li>
+<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Tin tức đề cập đến 'bài toán kép' tăng trưởng và an toàn hệ thống, cho thấy sự cân bằng giữa hai mục tiêu này</li>
+<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Không có thông tin cụ thể về sự tích cực hoặc tiêu cực trong nội dung tin tức</li>
+<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Lãi suất liên ngân hàng hạ nhiệt cho thấy sự ổn định của thị trường tài chính</li>
+<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Tổng thầu đường sắt của Vingroup tăng vốn lên 10.000 tỷ đồng, gấp 9 lần Coteccons, bỏ xa Vinaconex, Đèo Cả,…</li>
+</ul>
+      </div>
+
+      <!-- Tin doanh nghiệp -->
+      
+        <div class="section-gap corporate-section">
+          <div class="section-title">Tin th&#7883; tr&#432;&#7901;ng</div>
+          <div class="corp-list"><div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>Một phút nắm trọn thị trường trước giờ giao dịch phiên 13/4: Lãi suất hạ nhiệt, thêm doanh nghiệp nộp hồ sơ niêm yết trên HoSE</span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Phát hành</span>Tổng thầu đường sắt của Vingroup tăng vốn lên 10.000 tỷ đồng, gấp 9 lần Coteccons, bỏ xa Vinaconex, Đèo Cả</span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>Tân Thống đốc đối mặt bài toán 'kép' tăng trưởng và an toàn hệ thống<span style="font-size:10px;background:#c8e6c9;color:#1b5e20;padding:1px 5px;border-radius:3px;font-weight:700;margin-left:4px;white-space:nowrap">&#9650; TC</span></span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Dự án</span>Người mua bất động sản ngày càng thận trọng</span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Dự án</span>Vinhomes của tỷ phú Phạm Nhật Vượng sắp khởi công khu công nghiệp hơn 5.600 tỷ tại thành phố nhỏ nhất Việt Nam<span style="font-size:10px;background:#c8e6c9;color:#1b5e20;padding:1px 5px;border-radius:3px;font-weight:700;margin-left:4px;white-space:nowrap">&#9650; TC</span></span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Dự án</span>Loạt doanh nghiệp bất động sản bị kiểm tra thuế</span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Dự án</span>Hà Nội sẽ triển khai cơ chế, chính sách đặc thù cho các dự án lớn, trọng điểm</span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">M&A</span>Giữa áp lực tài chính, vợ chồng Cường 'đô la' bất ngờ mang 95% cổ phần doanh nghiệp đi thế chấp ngân hàng</span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>NHNN quay đầu hút ròng hơn 66.000 tỷ, lãi suất liên ngân hàng hạ nhiệt</span></div>
+<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Dự án</span>Hải Phòng 'hồi sinh' dự án casino Đồ Sơn</span></div></div>
+        </div>
+
+      <!-- Nhận định nhanh — fill whitespace khi cột trái ngắn hơn cột phải -->
+      <div class="section-gap"><div class="section-title">Nhận định nhanh</div><div class="outlook-grid"><div class="outlook-card"><div class="oc-label">Bias hôm nay</div><div class="oc-sentiment oc-neg">🔴 THẬN TRỌNG - do giá dầu WTI và Brent tăng lên mức 104.57 và 102.78 USD/thùng sau khi Tổng thống Trump tuyên bố phong tỏa eo biển Hormuz</div></div><div class="outlook-card"><div class="oc-label">VN-Index outlook</div><div class="oc-note">VN-Index có thể tăng nhẹ trong phiên hôm nay với vùng hỗ trợ tại 1730 và vùng kháng cự tại 1770</div></div><div class="outlook-card"><div class="oc-label">&#9888;&#65039; Rủi ro cần theo dõi</div><div class="oc-note">Rủi ro lớn nhất cần theo dõi hôm nay là khả năng giá dầu tiếp tục tăng cao do căng thẳng địa chính trị tại Trung Đông</div></div></div></div>
+
+    </div><!-- /col-left -->
+
+    <!-- ─ RIGHT: Market Data — grey bg like BSC ──────────────────────────── -->
+    <div class="col-right">
+
+      <!-- Thị trường CK — VN + Thế giới gộp như BSC -->
+      <div class="section-gap">
+        <div class="section-title">Thị trường tài chính</div>
+        <table class="market-table">
+          <colgroup><col class="name"><col class="val"><col class="pct"></colgroup>
+          <thead>
+            <tr><th></th><th>13/04/2026</th><th>% Ngày</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>VN-Index</td><td class="val">1.750,00</td><td class="up">+0.77%</td></tr>
+<tr><td>VN30</td><td class="val">1.928,23</td><td class="up">+0.69%</td></tr>
+<tr><td>HNX-Index</td><td class="val">251,91</td><td class="up">+0.37%</td></tr>
+<tr><td>UPCOM</td><td class="val">127,38</td><td class="down">-0.09%</td></tr>
+            <tr class="foreign-row"><td>KN nước ngoài</td><td class="up">MUA RÒNG 840.6 tỷ</td><td class="note"> <span class="note">(10/04/2026 15:10)</span> <span class="warn">⚠️ Stale</span></td></tr>
+            <tr><td colspan="3" style="padding:3px 0; background:var(--teal); height:1px;"></td></tr>
+            <tr><td>🇺🇸 S&P 500</td><td class="val">6.816,89</td><td class="down">-0.11%</td></tr>
+<tr><td>🇺🇸 Dow Jones</td><td class="val">47.916,57</td><td class="down">-0.56%</td></tr>
+<tr><td>🇺🇸 Nasdaq</td><td class="val">22.902,89</td><td class="up">+0.35%</td></tr>
+<tr><td>🇨🇳 Shanghai</td><td class="val">3.986,23</td><td class="up">+0.51%</td></tr>
+<tr><td>🇭🇰 Hang Seng</td><td class="val">25.893,54</td><td class="up">+0.55%</td></tr>
+<tr><td>🇯🇵 Nikkei 225</td><td class="val">56.437,34</td><td class="down">-0.86%</td></tr>
+<tr><td>🇪🇺 EuroStoxx50</td><td class="val">5.926,11</td><td class="up">+0.51%</td></tr>
+<tr><td>🇰🇷 KOSPI</td><td class="val">5.789,46</td><td class="down">-1.18%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hàng hóa -->
+      <div class="section-gap">
+        <div class="section-title">Thị trường hàng hóa</div>
+        <table class="market-table">
+          <colgroup><col class="name"><col class="val"><col class="pct"></colgroup>
+          <thead>
+            <tr><th></th><th>13/04/2026</th><th>% Ngày</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🛢️ Dầu WTI</td><td class="val">104,6</td><td class="up">+8.28%</td></tr>
+<tr><td>🛢️ Dầu Brent</td><td class="val">102,8</td><td class="up">+7.96%</td></tr>
+<tr><td>🔥 Khí tự nhiên</td><td class="val">2,7</td><td class="up">+1.36%</td></tr>
+<tr><td>🥇 Vàng</td><td class="val">4.707,6</td><td class="down">-1.14%</td></tr>
+<tr><td>🥈 Bạc</td><td class="val">74,0</td><td class="down">-3.01%</td></tr>
+<tr><td>🪙 Đồng</td><td class="val">5,8</td><td class="down">-1.14%</td></tr>
+<tr><td>⚙️ Thép HRC</td><td class="val">1.087,0</td><td class="up">+3.92%</td></tr>
+<tr><td>🌾 Lúa mì</td><td class="val">581,5</td><td class="up">+1.84%</td></tr>
+<tr><td>🌽 Ngô</td><td class="val">445,5</td><td class="up">+1.02%</td></tr>
+<tr><td>🫘 Đậu nành</td><td class="val">1.183,5</td><td class="up">+0.66%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tỷ giá + Crypto -->
+      <div class="section-gap">
+        <div class="section-title">Tỷ giá &amp; Tiền số</div>
+        <table class="market-table">
+          <colgroup><col class="name"><col class="val"><col class="pct"></colgroup>
+          <thead>
+            <tr><th></th><th>13/04/2026</th><th>% 24h</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&#x1F1FB;&#x1F1F3; USD/VND</td><td class="val">26.360</td><td class="neutral"><small>(VCB)</small></td></tr>
+            <tr><td>₿ Bitcoin <span class="sym">(BTC)</span></td><td class="val">$71.177</td><td class="down">-2.60%</td></tr>
+<tr><td>Ξ Ethereum <span class="sym">(ETH)</span></td><td class="val">$2.205</td><td class="down">-3.48%</td></tr>
+<tr><td>🔶 BNB <span class="sym">(BNB)</span></td><td class="val">$596</td><td class="down">-1.77%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /col-right -->
+
+  </div><!-- /main-body -->
+
+  <!-- ══ AI SECTION — Full width ══════════════════════════════════════════════ -->
+  <div class="ai-section">
+    <div class="section-title">Nhận định AI – Phân tích thị trường sáng nay</div>
+    <div class="ai-block" style="border-left-color:#80cbc4;background:rgba(255,255,255,.12)">▸ Overnight: Thị trường quốc tế qua đêm ghi nhận S&amp;P 500 giảm 0.1%, Dow Jones giảm 0.6%, trong khi Nasdaq tăng 0.3% do sự sụp đổ của cuộc đàm phán hòa bình giữa Mỹ và Iran<br>▸ Bias: 🔴 THẬN TRỌNG - do giá dầu WTI và Brent tăng lên mức 104.57 và 102.78 USD/thùng sau khi Tổng thống Trump tuyên bố phong tỏa eo biển Hormuz<br>▸ VN hôm nay: VN-Index có thể tăng nhẹ trong phiên hôm nay với vùng hỗ trợ tại 1730 và vùng kháng cự tại 1770<br>▸ Theo dõi: Dầu khí và vận tải biển sẽ là nhóm ngành cần theo dõi chặt chẽ do thông tin về việc phong tỏa eo biển Hormuz và giá dầu tăng cao<br>▸ Rủi ro: Rủi ro lớn nhất cần theo dõi hôm nay là khả năng giá dầu tiếp tục tăng cao do căng thẳng địa chính trị tại Trung Đông</div>
+<div class="ai-block">🌍 [QUỐC TẾ] Chiến tranh – Địa chính trị<br>🔴 <b>[TIÊU CỰC]</b> (Score: -2)<br>- Tin tức về việc hòa đàm giữa Mỹ và Iran thất bại, dẫn đến việc Mỹ sẽ phong tỏa các cảng của Iran, làm tăng giá dầu và gây ra khủng hoảng năng lượng toàn cầu (NYT - Business, Oil Prices Surge Above $100 After Peace Talks Fail and Trump Threatens Blockade)<br>- Các cuộc không kích của quân đội Nigeria đã giết hại nhiều dân thường, gây ra sự phẫn nộ trong cộng đồng quốc tế (NYT - World, Scores Killed in Nigerian Military Strikes as Clashes With Militants Intensify)<br>- Cuộc chiến ở Trung Đông có thể gây ra những tác động kinh tế nghiêm trọng, ảnh hưởng đến các cuộc họp của Quỹ Tiền tệ Quốc tế và Ngân hàng Thế giới (Reuters - World, Economic shock of Middle East war to cast shadow over IMF, World Bank meetings)<br>- Tình hình căng thẳng giữa Mỹ và Iran có thể dẫn đến một cuộc chiến tranh lớn, gây ra những hậu quả nghiêm trọng cho cả hai bên (NYT - World, Iran War Live Updates: U.S. to Blockade Ships From Iranian Ports)<br>- Các quốc gia khác như Úc đang kêu gọi hòa giải và tự do hàng hải trong eo biển Hormuz để tránh một cuộc khủng hoảng kinh tế toàn cầu (Guardian - World, Australia news live: Uber adds fuel surcharge to fares; PM calls for ‘freedom of navigation’ in strait of Hormuz)<br>Nguồn: NYT – World, Reuters – World, NYT – Business, Guardian – World</div>
+<div class="ai-block">🛢 [QUỐC TẾ] Nhiên liệu – Hàng hóa<br>🔴 <b>[TIÊU CỰC]</b> (Score: -1)<br>- Tin tức về việc Mỹ phong tỏa Hormuz làm tăng khủng hoảng và khiến giá dầu tăng (theo Bloomberg - Asia)<br>- Tin tức về việc các cổ phiếu giảm do động thái phong tỏa Hormuz (theo Bloomberg - Asia)<br>- Tin tức về việc các vấn đề liên quan đến di trú và an ninh ở Úc (theo Guardian - World)<br>- Tin tức về việc sa thải nhân viên bị kết án hiếp dâm tại One Nation (theo Guardian - World)<br>- Tin tức về việc sử dụng tay cùm cho tất cả các đối tượng di trú khi di chuyển (theo Guardian - World)<br>Nguồn: Bloomberg – Asia, Guardian – World</div>
+<div class="ai-block">📊 [QUỐC TẾ] Tài chính thế giới<br>🔴 <b>[TIÊU CỰC]</b> (Score: -1)<br>- Tin tức cho biết các cuộc đàm phán hòa bình giữa Mỹ và Iran đã sụp đổ, dẫn đến sự bất ổn trên thị trường tài chính.<br>- Giá dầu tăng và đồng đô la Mỹ tăng, trong khi thị trường chứng khoán giảm, cho thấy sự mất niềm tin của nhà đầu tư vào tình hình kinh tế hiện tại.<br>- Sự sụp đổ của các cuộc đàm phán hòa bình có thể dẫn đến sự gia tăng căng thẳng địa chính trị, ảnh hưởng tiêu cực đến thị trường tài chính toàn cầu.<br>Nguồn: Reuters – Markets</div>
+<div class="ai-block">🏦 [TRONG NƯỚC] Lãi suất – Chính sách tiền tệ<br>🟢 <b>[TÍCH CỰC]</b> (Score: +1)<br>- Lãi suất liên ngân hàng hạ nhiệt cho thấy sự ổn định của thị trường tài chính<br>- NHNN hút ròng hơn 66.000 tỷ cho thấy sự kiểm soát hiệu quả của ngân hàng trung ương đối với lượng tiền tệ trong lưu thông<br>- Việc hạ nhiệt lãi suất liên ngân hàng có thể giúp giảm chi phí vốn cho các doanh nghiệp và thúc đẩy tăng trưởng kinh tế<br>Nguồn: VietnamBiz</div>
+<div class="ai-block">🏗 [TRONG NƯỚC] Dự án hạ tầng<br>🟢 <b>[TÍCH CỰC]</b> (Score: +2)<br>- Tổng thầu đường sắt của Vingroup tăng vốn lên 10.000 tỷ đồng, gấp 9 lần Coteccons, bỏ xa Vinaconex, Đèo Cả, cho thấy sự đầu tư mạnh mẽ vào lĩnh vực hạ tầng<br>- Vinhomes của tỷ phú Phạm Nhật Vượng sắp khởi công khu công nghiệp hơn 5.600 tỷ tại thành phố nhỏ nhất Việt Nam, thể hiện sự mở rộng và phát triển của công ty<br>- Sự tăng vốn và đầu tư vào các dự án mới cho thấy sự tự tin và lạc quan của các doanh nghiệp về tương lai kinh tế<br>- Các dự án này có thể tạo ra nhiều việc làm và刺激 sự phát triển kinh tế tại các khu vực<br>- Sự phát triển của hạ tầng và công nghiệp có thể giúp tăng cường năng lực cạnh tranh và thu hút đầu tư nước ngoài<br>Nguồn: Người Quan Sát, CafeF</div>
+<div class="ai-block">📈 [TRONG NƯỚC] Tài chính vĩ mô &amp; Thị trường<br>🟡 <b>[TRUNG TÍNH]</b> (Score: 0)<br>- Tin tức đề cập đến 'bài toán kép' tăng trưởng và an toàn hệ thống, cho thấy sự cân bằng giữa hai mục tiêu này<br>- Không có thông tin cụ thể về sự tích cực hoặc tiêu cực trong nội dung tin tức<br>- Tân Thống đốc cần đối mặt với thách thức, nhưng không có đánh giá chủ quan về khả năng thành công hay thất bại<br>- Tin tức chỉ cung cấp thông tin về tình hình hiện tại và không có dự đoán về tương lai<br>- Không có ngôn ngữ hoặc cụm từ mang tính tích cực hoặc tiêu cực trong nội dung tin tức<br>Nguồn: VietnamBiz</div>
+<div class="ai-block">🏢 [TRONG NƯỚC] Tin doanh nghiệp<br>🟡 <b>[TRUNG TÍNH]</b> (Score: 0)<br>- Tin về lãi suất hạ nhiệt và doanh nghiệp nộp hồ sơ niêm yết trên HoSE mang tính tích cực<br>- Tuy nhiên, thông tin về loạt doanh nghiệp bất động sản bị kiểm tra thuế và vợ chồng Cường 'đô la' thế chấp cổ phần doanh nghiệp tạo ra áp lực tiêu cực<br>- Doanh thu TNG vượt 1.900 tỷ trong quý I là tín hiệu tích cực cho thị trường<br>- Top cổ phiếu đáng chú ý đầu tuần 13/04 không mang tính tích cực hay tiêu cực cụ thể<br>- Tổng thể, các tin tức có sự cân bằng giữa tích cực và tiêu cực, dẫn đến sentiment trung tính<br>Nguồn: Người Quan Sát, VietnamBiz, Vietstock</div>
+  </div>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
+  <footer class="report-footer">
+    <div class="disclaimer">Thông tin do Tunglaiapchung tổng hợp, giá có thể thay đổi khi thị trường mở cửa!</div>
+    <div>
+      <a href="https://t.me/tunglaiapchung">https://t.me/tunglaiapchung</a>
+      &nbsp;|&nbsp; 0865469745
+    </div>
+  </footer>
+
+</div><!-- /page-wrapper -->
+</body>
+</html>
