@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bản Tin Sáng – tunglaiapchung – 20/04/2026</title>
+  <title>Bản Tin Sáng – {broker_name} – {run_date}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
@@ -11,9 +11,9 @@
     /* ════════════════════════════════════════════
        RESET & BASE
     ════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
-    :root {
+    :root {{
       /* ─ BSC Teal palette ─ */
       --teal:       #007b7b;
       --teal-dark:  #005f5f;
@@ -38,30 +38,30 @@
       --tag-qt-fg:  #7a5200;
       --tag-vn-bg:  #e8f5e9;
       --tag-vn-fg:  #1b5e20;
-    }
+    }}
 
-    body {
+    body {{
       font-family: 'Be Vietnam Pro', 'Helvetica Neue', Arial, sans-serif;
       font-size: 12.5px;
       background: var(--bg);
       color: var(--text);
       line-height: 1.5;
-    }
+    }}
 
     /* ════════════════════════════════════════════
        PAGE WRAPPER — no shadow, flat like print
     ════════════════════════════════════════════ */
-    .page-wrapper {
+    .page-wrapper {{
       max-width: 940px;
       margin: 0 auto;
       background: var(--card);
       border: 1px solid #ccc;
-    }
+    }}
 
     /* ════════════════════════════════════════════
        HEADER — BSC style: TEAL gradient, compact
     ════════════════════════════════════════════ */
-    .report-header {
+    .report-header {{
       background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
       color: #fff;
       padding: 12px 20px 10px;
@@ -69,18 +69,18 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-    }
-    .header-left {
+    }}
+    .header-left {{
       display: flex;
       align-items: center;
       gap: 14px;
-    }
-    .logo {
+    }}
+    .logo {{
       height: 44px;
       width: auto;
       object-fit: contain;
-    }
-    .logo-placeholder {
+    }}
+    .logo-placeholder {{
       font-size: 22px;
       font-weight: 800;
       letter-spacing: 2px;
@@ -88,43 +88,43 @@
       border: 2px solid rgba(255,255,255,.6);
       padding: 4px 12px;
       border-radius: 4px;
-    }
-    .header-title {
+    }}
+    .header-title {{
       display: flex;
       flex-direction: column;
       gap: 1px;
-    }
-    .header-title h1 {
+    }}
+    .header-title h1 {{
       font-size: 15px;
       font-weight: 700;
       letter-spacing: .3px;
       line-height: 1.2;
       color: #fff;
-    }
-    .header-title p {
+    }}
+    .header-title p {{
       font-size: 11px;
       color: rgba(255,255,255,.8);
       margin-top: 1px;
-    }
-    .header-right {
+    }}
+    .header-right {{
       text-align: right;
-    }
-    .header-right .date-big {
+    }}
+    .header-right .date-big {{
       font-size: 20px;
       font-weight: 700;
       color: #fff;
       line-height: 1.1;
-    }
-    .header-right .date-label {
+    }}
+    .header-right .date-label {{
       font-size: 10.5px;
       color: rgba(255,255,255,.75);
       margin-top: 2px;
-    }
+    }}
 
     /* ════════════════════════════════════════════
        SOURCE STRIP — thin teal underline
     ════════════════════════════════════════════ */
-    .strip {
+    .strip {{
       background: var(--teal-light);
       border-bottom: 2px solid var(--teal);
       padding: 4px 20px;
@@ -133,36 +133,36 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
+    }}
 
     /* ════════════════════════════════════════════
        MAIN LAYOUT — 2 columns (wider right for market tables)
     ════════════════════════════════════════════ */
-    .main-body {
+    .main-body {{
       display: grid;
       grid-template-columns: 1fr 400px;
       gap: 0;
       align-items: stretch;
-    }
+    }}
 
     /* Left column — white, news content */
-    .col-left {
+    .col-left {{
       padding: 14px 16px 14px 20px;
       border-right: 1px solid var(--border);
       background: #fff;
-    }
+    }}
 
     /* Right column — light grey BG like BSC */
-    .col-right {
+    .col-right {{
       background: var(--right-bg);
       padding: 14px 16px;
       border-left: 3px solid var(--teal);
-    }
+    }}
 
     /* ════════════════════════════════════════════
        SECTION TITLES — teal, no emoji, underline
     ════════════════════════════════════════════ */
-    .section-title {
+    .section-title {{
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -171,24 +171,24 @@
       border-bottom: 1.5px solid var(--teal);
       padding-bottom: 4px;
       margin-bottom: 8px;
-    }
-    .section-gap { margin-bottom: 14px; }
+    }}
+    .section-gap {{ margin-bottom: 14px; }}
 
     /* ════════════════════════════════════════════
        MARKET TABLES — BSC style
        - teal thead, no vertical borders, thin horiz
     ════════════════════════════════════════════ */
-    .market-table {
+    .market-table {{
       width: 100%;
       border-collapse: collapse;
       font-size: 11.5px;
       margin-bottom: 4px;
       table-layout: fixed;
-    }
-    .market-table col.name { width: 45%; }
-    .market-table col.val  { width: 30%; }
-    .market-table col.pct  { width: 25%; }
-    .market-table thead th {
+    }}
+    .market-table col.name {{ width: 45%; }}
+    .market-table col.val  {{ width: 30%; }}
+    .market-table col.pct  {{ width: 25%; }}
+    .market-table thead th {{
       background: var(--teal);
       color: #fff;
       padding: 4px 8px;
@@ -199,57 +199,57 @@
       border: none;
       white-space: nowrap;
       overflow: hidden;
-    }
-    .market-table thead th:not(:first-child) { text-align: right; }
+    }}
+    .market-table thead th:not(:first-child) {{ text-align: right; }}
 
-    .market-table tbody tr {
+    .market-table tbody tr {{
       border-bottom: 1px solid #e0e8e8;
-    }
-    .market-table tbody tr:last-child { border-bottom: none; }
-    .market-table tbody tr:nth-child(even) { background: rgba(0,123,123,.03); }
+    }}
+    .market-table tbody tr:last-child {{ border-bottom: none; }}
+    .market-table tbody tr:nth-child(even) {{ background: rgba(0,123,123,.03); }}
 
-    .market-table td {
+    .market-table td {{
       padding: 4px 8px;
       vertical-align: middle;
       border: none;
       overflow: hidden;
-    }
-    .market-table td:first-child {
+    }}
+    .market-table td:first-child {{
       white-space: normal;
       word-break: break-word;
       font-size: 12px;
-    }
-    .market-table td:not(:first-child) {
+    }}
+    .market-table td:not(:first-child) {{
       text-align: right;
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
-    }
-    .market-table td.val {
+    }}
+    .market-table td.val {{
       font-weight: 600;
       color: var(--text);
-    }
-    .market-table .foreign-row td {
+    }}
+    .market-table .foreign-row td {{
       background: #e8f5f5;
       font-size: 11px;
       font-style: italic;
-    }
+    }}
 
     /* ─ Up / Down / Neutral ─ */
-    .up      { color: var(--up);   font-weight: 600; }
-    .down    { color: var(--down); font-weight: 600; }
-    .neutral { color: var(--neutral); }
-    .sym     { color: var(--neutral); font-size: 10.5px; }
-    .note    { color: var(--neutral); font-size: 10px; font-style: italic; }
-    .warn    { color: #c44b00; font-size: 10.5px; }
+    .up      {{ color: var(--up);   font-weight: 600; }}
+    .down    {{ color: var(--down); font-weight: 600; }}
+    .neutral {{ color: var(--neutral); }}
+    .sym     {{ color: var(--neutral); font-size: 10.5px; }}
+    .note    {{ color: var(--neutral); font-size: 10px; font-style: italic; }}
+    .warn    {{ color: #c44b00; font-size: 10.5px; }}
 
     /* ════════════════════════════════════════════
        MACRO NEWS — bullet list style
     ════════════════════════════════════════════ */
-    .macro-list {
+    .macro-list {{
       list-style: none;
       padding: 0;
-    }
-    .macro-list li {
+    }}
+    .macro-list li {{
       display: flex;
       gap: 6px;
       align-items: flex-start;
@@ -257,18 +257,18 @@
       border-bottom: 1px solid #eaeeee;
       font-size: 12px;
       line-height: 1.4;
-    }
-    .macro-list li:first-child { padding-top: 0; }
-    .macro-list li:last-child  { border-bottom: none; padding-bottom: 0; }
+    }}
+    .macro-list li:first-child {{ padding-top: 0; }}
+    .macro-list li:last-child  {{ border-bottom: none; padding-bottom: 0; }}
 
-    .bullet {
+    .bullet {{
       color: var(--teal);
       font-size: 14px;
       line-height: 1.3;
       flex-shrink: 0;
-    }
+    }}
 
-    .tag-qt, .tag-vn {
+    .tag-qt, .tag-vn {{
       display: inline-block;
       font-size: 9px;
       font-weight: 700;
@@ -278,12 +278,12 @@
       flex-shrink: 0;
       margin-top: 3px;
       letter-spacing: .3px;
-    }
-    .tag-qt { background: var(--tag-qt-bg); color: var(--tag-qt-fg); }
-    .tag-vn { background: var(--tag-vn-bg); color: var(--tag-vn-fg); }
+    }}
+    .tag-qt {{ background: var(--tag-qt-bg); color: var(--tag-qt-fg); }}
+    .tag-vn {{ background: var(--tag-vn-bg); color: var(--tag-vn-fg); }}
 
     /* Fallback: macro summary block từ AI */
-    .macro-group {
+    .macro-group {{
       font-size: 12px;
       margin-bottom: 8px;
       padding: 7px 10px;
@@ -291,38 +291,38 @@
       border-left: 3px solid var(--teal);
       border-radius: 0 3px 3px 0;
       line-height: 1.5;
-    }
+    }}
 
     /* ════════════════════════════════════════════
        CORPORATE NEWS
     ════════════════════════════════════════════ */
-    .corporate-section { margin-top: 2px; }
-    .corp-list {
+    .corporate-section {{ margin-top: 2px; }}
+    .corp-list {{
       font-size: 12.5px;
-    }
-    .corp-item {
+    }}
+    .corp-item {{
       display: flex;
       gap: 6px;
       align-items: flex-start;
       padding: 5px 0;
       border-bottom: 1px solid #eaeeee;
       line-height: 1.45;
-    }
-    .corp-item:last-child { border-bottom: none; padding-bottom: 0; }
+    }}
+    .corp-item:last-child {{ border-bottom: none; padding-bottom: 0; }}
 
     /* ════════════════════════════════════════════
        AI SECTION — full width, teal flavoured
     ════════════════════════════════════════════ */
-    .ai-section {
+    .ai-section {{
       background: linear-gradient(135deg, #004d4d 0%, #006666 50%, #007b7b 100%);
       padding: 14px 20px;
       border-top: 3px solid #ffd54f;
-    }
-    .ai-section .section-title {
+    }}
+    .ai-section .section-title {{
       color: #ffd54f;
       border-color: #ffd54f;
-    }
-    .ai-block {
+    }}
+    .ai-block {{
       color: #e0f2f1;
       font-size: 12px;
       line-height: 1.6;
@@ -331,13 +331,13 @@
       background: rgba(255,255,255,.07);
       border-radius: 4px;
       border-left: 3px solid #ffd54f;
-    }
-    .ai-block:last-child { margin-bottom: 0; }
+    }}
+    .ai-block:last-child {{ margin-bottom: 0; }}
 
     /* ════════════════════════════════════════════
        FOOTER — teal, compact
     ════════════════════════════════════════════ */
-    .report-footer {
+    .report-footer {{
       background: var(--teal-dark);
       color: rgba(255,255,255,.75);
       padding: 8px 20px;
@@ -347,77 +347,77 @@
       font-size: 10.5px;
       flex-wrap: wrap;
       gap: 4px;
-    }
-    .report-footer a { color: #80cbc4; text-decoration: none; }
-    .report-footer a:hover { text-decoration: underline; }
-    .disclaimer { font-style: italic; }
+    }}
+    .report-footer a {{ color: #80cbc4; text-decoration: none; }}
+    .report-footer a:hover {{ text-decoration: underline; }}
+    .disclaimer {{ font-style: italic; }}
 
     /* ════════════════════════════════════════════
        OUTLOOK CARDS — bottom of left column
     ════════════════════════════════════════════ */
-    .outlook-grid {
+    .outlook-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
       margin-top: 4px;
-    }
-    .outlook-card {
+    }}
+    .outlook-card {{
       border: 1px solid #e0e8e6;
       border-radius: 4px;
       padding: 8px 10px;
       background: #f9fffe;
-    }
-    .outlook-card .oc-label {
+    }}
+    .outlook-card .oc-label {{
       font-size: 9.5px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .5px;
       color: #888;
       margin-bottom: 3px;
-    }
-    .outlook-card .oc-sentiment {
+    }}
+    .outlook-card .oc-sentiment {{
       font-size: 12px;
       font-weight: 700;
       margin-bottom: 2px;
-    }
-    .outlook-card .oc-note {
+    }}
+    .outlook-card .oc-note {{
       font-size: 10.5px;
       color: #555;
       line-height: 1.35;
-    }
-    .oc-pos  { color: var(--up); }
-    .oc-neg  { color: var(--down); }
-    .oc-neu  { color: #e6a817; }
+    }}
+    .oc-pos  {{ color: var(--up); }}
+    .oc-neg  {{ color: var(--down); }}
+    .oc-neu  {{ color: #e6a817; }}
 
     /* ════════════════════════════════════════════
        PRINT STYLES — A4, faithful to screen
     ════════════════════════════════════════════ */
-    @page {
+    @page {{
       margin: 0;
-    }
-    @media print {
-      body { background: #fff; font-size: 11px; padding: 8mm; }
-      .page-wrapper { border: none; max-width: 100%; }
+    }}
+    @media print {{
+      body {{ background: #fff; font-size: 11px; padding: 8mm; }}
+      .page-wrapper {{ border: none; max-width: 100%; }}
       .report-header,
       .ai-section,
       .report-footer,
       .col-right,
-      .strip {
+      .strip {{
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
-      }
-    }
+      }}
+    }}
 
     /* ════════════════════════════════════════════
        RESPONSIVE — mobile
     ════════════════════════════════════════════ */
-    @media (max-width: 640px) {
-      .main-body { grid-template-columns: 1fr; }
-      .col-left  { border-right: none; border-bottom: 1px solid var(--border); }
-      .col-right { border-left: none; border-top: 3px solid var(--teal); }
-      .report-header { flex-direction: column; align-items: flex-start; }
-      .header-right { text-align: left; }
-    }
+    @media (max-width: 640px) {{
+      .main-body {{ grid-template-columns: 1fr; }}
+      .col-left  {{ border-right: none; border-bottom: 1px solid var(--border); }}
+      .col-right {{ border-left: none; border-top: 3px solid var(--teal); }}
+      .report-header {{ flex-direction: column; align-items: flex-start; }}
+      .header-right {{ text-align: left; }}
+    }}
 
   </style>
 </head>
@@ -428,15 +428,15 @@
   <!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
   <header class="report-header">
     <div class="header-left">
-      <img src="logo.png" alt="tunglaiapchung" class="logo">
+      {logo_html}
       <div class="header-title">
-        <h1>BẢN TIN SÁNG NGÀY 20/04/2026</h1>
-        <p>Chuyên gia Chứng khoán &nbsp;·&nbsp; https://t.me/tunglaiapchung &nbsp;·&nbsp; 0865469745</p>
+        <h1>BẢN TIN SÁNG NGÀY {run_date}</h1>
+        <p>{broker_title} &nbsp;·&nbsp; {broker_tg} &nbsp;·&nbsp; {broker_tel}</p>
       </div>
     </div>
     <div class="header-right">
-      <div class="date-big">20/04/2026</div>
-      <div class="date-label">Cập nhật: 22:32</div>
+      <div class="date-big">{run_date}</div>
+      <div class="date-label">Cập nhật: {updated_time}</div>
     </div>
   </header>
 
@@ -455,34 +455,14 @@
       <!-- Tin vĩ mô -->
       <div class="section-gap">
         <div class="section-title">Tin tức vĩ mô</div>
-        <ul class="macro-list">
-<li><span class="bullet">&bull;</span><span class="tag-qt">QT</span> Tin tức về chiến tranh và xung đột giữa các quốc gia như Mỹ, Israel và Iran đang gia tăng (theo Reuters và …</li>
-<li><span class="bullet">&bull;</span><span class="tag-qt">QT</span> Các tin tức về kết quả kinh doanh và thông báo của các công ty như Amundi, Choice Hotels International, Hom…</li>
-<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Tin tức về việc một nhân viên văn phòng trúng giải Jackpot gần 80 tỉ đồng mang lại thông tin tích cực (NLD …</li>
-<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Giá vàng tăng nhanh vào cuối ngày, vượt xa mốc 4.800 USD/ounce, là tín hiệu tích cực cho thị trường vàng (N…</li>
-<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Tin tức về việc Sacombank huỷ bỏ tờ trình gia hạn đề án tái cơ cấu trước ngày ĐHĐCĐ tạo ra sự bất ổn trong …</li>
-<li><span class="bullet">&bull;</span><span class="tag-vn">VN</span> Tin tức về căng thẳng giữa Mỹ và Iran làm giảm niềm tin của nhà đầu tư, khiến chỉ số S&P 500 và Nasdaq giảm…</li>
-</ul>
+        {macro_html}
       </div>
 
       <!-- Tin doanh nghiệp -->
-      
-        <div class="section-gap corporate-section">
-          <div class="section-title">Tin th&#7883; tr&#432;&#7901;ng</div>
-          <div class="corp-list"><div class="corp-item"><span class="bullet">&bull;</span><span><b style="color:var(--teal-dark)">CK</b> <span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">M&A</span>Ra mắt Vinhomes Hải Vân Bay - Biểu tượng đô thị vịnh biển toàn cầu</span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><b style="color:var(--teal-dark)">IRGC</b> Điều gì sẽ xảy ra với tàu hàng Iran bị Mỹ thu giữ?</span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><b style="color:var(--teal-dark)">DGW</b> Cổ phiếu đáng chú ý ngày 21/4: KBC, CII, DGW - nguoiquansat.vn</span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>Cách nào huy động 38,5 triệu tỷ đồng cho tăng trưởng 2 con số?<span style="font-size:10px;background:#c8e6c9;color:#1b5e20;padding:1px 5px;border-radius:3px;font-weight:700;margin-left:4px;white-space:nowrap">&#9650; TC</span></span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>Kiến nghị cho doanh nghiệp được vay vàng trong dân với lãi suất thỏa thuận</span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>Vietcombank, BIDV, Agribank, VietinBank... dừng giao dịch chuyển khoản nhanh 24/7 đối với trường hợp này</span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Dự án</span>Đồng Nai: Cấm một công ty tham gia đấu thầu dự án</span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>Rà soát quy định ngưỡng doanh thu miễn thuế với hộ kinh doanh</span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">KQKD</span>Lộ diện công ty chứng khoán lãi lớn nhất quý I/2026<span style="font-size:10px;background:#c8e6c9;color:#1b5e20;padding:1px 5px;border-radius:3px;font-weight:700;margin-left:4px;white-space:nowrap">&#9650; TC</span></span></div>
-<div class="corp-item"><span class="bullet">&bull;</span><span><span style="font-size:10px;background:#e0f2f1;color:var(--teal-dark);padding:1px 5px;border-radius:3px;font-weight:700;margin-right:4px;white-space:nowrap">Dự án</span>Chuyển hồ sơ dự án Usilk City của STL sang cơ quan điều tra Bộ Công an</span></div></div>
-        </div>
+      {corp_section}
 
       <!-- Nhận định nhanh — fill whitespace khi cột trái ngắn hơn cột phải -->
-      <div class="section-gap"><div class="section-title">Nhận định nhanh</div><div class="outlook-grid"><div class="outlook-card"><div class="oc-label">Bias hôm nay</div><div class="oc-sentiment oc-neg">🔴 THẬN TRỌNG - Do ảnh hưởng từ căng thẳng địa chính trị và suy giảm trên thị trường chứng khoán Mỹ qua đêm.</div></div><div class="outlook-card"><div class="oc-label">VN-Index outlook</div><div class="oc-note">VN-Index có thể tiếp tục tăng nhẹ với vùng kháng cự gần 1850 điểm, trong khi vùng hỗ trợ vẫn được duy trì quanh 1820 điểm.</div></div><div class="outlook-card"><div class="oc-label">&#9888;&#65039; Rủi ro cần theo dõi</div><div class="oc-note">Rủi ro lớn nhất cần theo dõi hôm nay là tình hình căng thẳng Mỹ - Iran tiếp tục leo thang và ảnh hưởng đến giá dầu, từ đó tác động đến thị trường chứng khoán.</div></div></div></div>
+      {outlook_html}
 
 
     </div><!-- /col-left -->
@@ -496,22 +476,13 @@
         <table class="market-table">
           <colgroup><col class="name"><col class="val"><col class="pct"></colgroup>
           <thead>
-            <tr><th></th><th>20/04/2026</th><th>% Ngày</th></tr>
+            <tr><th></th><th>{run_date}</th><th>% Ngày</th></tr>
           </thead>
           <tbody>
-            <tr><td>VN-Index</td><td class="val">1.837,11</td><td class="up">+1.10%</td></tr>
-<tr><td>VN30</td><td class="val">2.009,04</td><td class="up">+1.05%</td></tr>
-<tr><td>HNX-Index</td><td class="val">257,33</td><td class="down">-1.03%</td></tr>
-<tr><td>UPCOM</td><td class="val">129,49</td><td class="up">+0.87%</td></tr>
-            <tr class="foreign-row"><td>KN nước ngoài</td><td class="down">BÁN RÒNG 604.9 tỷ</td><td class="note"> <span class="note">(20/04/2026 15:10)</span></td></tr>
+            {vn_rows}
+            {foreign_row}
             <tr><td colspan="3" style="padding:3px 0; background:var(--teal); height:1px;"></td></tr>
-            <tr><td>🇺🇸 S&P 500</td><td class="val">7.103,16</td><td class="down">-0.32%</td></tr>
-<tr><td>🇺🇸 Dow Jones</td><td class="val">49.386,95</td><td class="down">-0.12%</td></tr>
-<tr><td>🇺🇸 Nasdaq</td><td class="val">24.332,03</td><td class="down">-0.56%</td></tr>
-<tr><td>🇨🇳 Shanghai</td><td class="val">4.082,13</td><td class="up">+0.76%</td></tr>
-<tr><td>🇭🇰 Hang Seng</td><td class="val">26.361,07</td><td class="up">+0.77%</td></tr>
-<tr><td>🇯🇵 Nikkei 225</td><td class="val">58.475,90</td><td class="down">-1.75%</td></tr>
-<tr><td>🇪🇺 EuroStoxx50</td><td class="val">5.975,17</td><td class="down">-1.36%</td></tr>
+            {world_rows}
           </tbody>
         </table>
       </div>
@@ -522,19 +493,10 @@
         <table class="market-table">
           <colgroup><col class="name"><col class="val"><col class="pct"></colgroup>
           <thead>
-            <tr><th></th><th>20/04/2026</th><th>% Ngày</th></tr>
+            <tr><th></th><th>{run_date}</th><th>% Ngày</th></tr>
           </thead>
           <tbody>
-            <tr><td>🛢️ Dầu WTI</td><td class="val">87,4</td><td class="up">+4.22%</td></tr>
-<tr><td>🛢️ Dầu Brent</td><td class="val">95,6</td><td class="up">+5.80%</td></tr>
-<tr><td>🔥 Khí tự nhiên</td><td class="val">2,7</td><td class="up">+1.08%</td></tr>
-<tr><td>🥇 Vàng</td><td class="val">4.816,7</td><td class="down">-0.84%</td></tr>
-<tr><td>🥈 Bạc</td><td class="val">79,6</td><td class="down">-2.63%</td></tr>
-<tr><td>🪙 Đồng</td><td class="val">6,0</td><td class="down">-1.01%</td></tr>
-<tr><td>⚙️ Thép HRC</td><td class="val">1.050,0</td><td class="up">+0.38%</td></tr>
-<tr><td>🌾 Lúa mì</td><td class="val">608,0</td><td class="up">+2.83%</td></tr>
-<tr><td>🌽 Ngô</td><td class="val">459,8</td><td class="up">+2.45%</td></tr>
-<tr><td>🫘 Đậu nành</td><td class="val">1.164,8</td><td class="down">-0.21%</td></tr>
+            {commo_rows}
           </tbody>
         </table>
       </div>
@@ -545,13 +507,11 @@
         <table class="market-table">
           <colgroup><col class="name"><col class="val"><col class="pct"></colgroup>
           <thead>
-            <tr><th></th><th>20/04/2026</th><th>% 24h</th></tr>
+            <tr><th></th><th>{run_date}</th><th>% 24h</th></tr>
           </thead>
           <tbody>
-            <tr><td>&#x1F1FB;&#x1F1F3; USD/VND</td><td class="val">26.358</td><td class="neutral"><small>(VCB)</small></td></tr>
-            <tr><td>₿ Bitcoin <span class="sym">(BTC)</span></td><td class="val">$75.537</td><td class="down">-0.61%</td></tr>
-<tr><td>Ξ Ethereum <span class="sym">(ETH)</span></td><td class="val">$2.314</td><td class="down">-0.94%</td></tr>
-<tr><td>🔶 BNB <span class="sym">(BNB)</span></td><td class="val">$627</td><td class="neutral">0.00%</td></tr>
+            {forex_html}
+            {crypto_rows}
           </tbody>
         </table>
       </div>
@@ -563,15 +523,15 @@
   <!-- ══ AI SECTION — Full width ══════════════════════════════════════════════ -->
   <div class="ai-section">
     <div class="section-title">Nhận định AI – Phân tích thị trường sáng nay</div>
-    <div class="ai-block" style="border-left-color:#80cbc4;background:rgba(255,255,255,.12)">▸ Overnight: Thị trường quốc tế qua đêm ghi nhận S&amp;P 500 giảm 0.3% và Nasdaq giảm 0.6% do căng thẳng Mỹ - Iran tăng cao, trong khi đó Dow Jones giảm nhẹ 0.1%.<br>▸ Bias: 🔴 THẬN TRỌNG - Do ảnh hưởng từ căng thẳng địa chính trị và suy giảm trên thị trường chứng khoán Mỹ qua đêm.<br>▸ VN hôm nay: VN-Index có thể tiếp tục tăng nhẹ với vùng kháng cự gần 1850 điểm, trong khi vùng hỗ trợ vẫn được duy trì quanh 1820 điểm.<br>▸ Theo dõi: Ngành dầu khí và ngân hàng sẽ là tâm điểm chú ý do ảnh hưởng từ biến động giá dầu và thông tin về Kuwait tuyên bố tình trạng bất khả kháng đối với các lô hàng dầu.<br>▸ Rủi ro: Rủi ro lớn nhất cần theo dõi hôm nay là tình hình căng thẳng Mỹ - Iran tiếp tục leo thang và ảnh hưởng đến giá dầu, từ đó tác động đến thị trường chứng khoán.</div>
+    {ai_html}
   </div>
 
   <!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
   <footer class="report-footer">
-    <div class="disclaimer">Thông tin do Tunglaiapchung tổng hợp, giá có thể thay đổi khi thị trường mở cửa!</div>
+    <div class="disclaimer">{disclaimer}</div>
     <div>
-      <a href="https://t.me/tunglaiapchung">https://t.me/tunglaiapchung</a>
-      &nbsp;|&nbsp; 0865469745
+      <a href="{broker_tg}">{broker_tg}</a>
+      &nbsp;|&nbsp; {broker_tel}
     </div>
   </footer>
 
